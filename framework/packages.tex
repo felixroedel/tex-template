@@ -33,6 +33,9 @@
 
 \usepackage[onehalfspacing]{setspace}         % Set line spacing to be 1.5x the default
 \usepackage{listings}                         % Code block support for LaTeX
+\usepackage[outputdir=./build]{minted}        % Better Code support for LaTeX, py based highlighting
+                                              % Make sure to give correct output directory in option
+                                              % Make sure to have python and pygmentize installed and added on path 
 
 \usepackage[titles]{tocloft}                  % More options to modify list of figures & tables
 \usepackage{nomencl}                          % Support for nomenclatures ("Symbolverzeichnis")
@@ -79,6 +82,9 @@
   straightvoltages,
   siunitx
 ]{circuitikz}
+
+% Create pictures in LaTeX
+\usepackage{tikz}
 
 % Annotate images with standard tikz macros
 \usepackage{tikz-imagelabels}

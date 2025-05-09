@@ -21,7 +21,7 @@
 
 % Unit-related setup for siunitx
 \sisetup{
-  locale=US,                   % Use German notation (comma instead of point delimiter for floats)
+  locale=DE,                   % Use German notation (comma instead of point delimiter for floats)
   per-mode=fraction,           % Switch display to use \frac instead of x^{-1}
   fraction-function=\tfrac,    % Use amsmath's tfrac macro for unit fractions
 }
@@ -170,13 +170,51 @@
 \newcommand{\info}   [2][]{\todo[nolist,color=yellow!25,bordercolor=yellow,tickmarkheight=3pt,#1]{#2}}
 
 % Larger clickable references to page items
-\newcommand{\imgref} [1]{\hyperref[#1]{figure~\getrefnumber{#1}}}
-\newcommand{\tabref} [1]{\hyperref[#1]{table~\getrefnumber{#1}}}
-\newcommand{\coderef}[1]{\hyperref[#1]{code~\getrefnumber{#1}}}
-\newcommand{\mathref}[1]{\hyperref[#1]{equation~\getrefnumber{#1}}}
+\newcommand{\imgref} [1]{\hyperref[#1]{Abb.~\getrefnumber{#1}}}
+\newcommand{\tabref} [1]{\hyperref[#1]{Tab.~\getrefnumber{#1}}}
+\newcommand{\coderef}[1]{\hyperref[#1]{Code~\getrefnumber{#1}}}
+\newcommand{\mathref}[1]{\hyperref[#1]{Gl.~\getrefnumber{#1}}}
 
 \newcommand{\Imgref} [1]{\hyperref[#1]{Figure~\getrefnumber{#1}}}
 \newcommand{\Tabref} [1]{\hyperref[#1]{Table~\getrefnumber{#1}}}
 \newcommand{\Coderef}[1]{\hyperref[#1]{Code~\getrefnumber{#1}}}
 \newcommand{\Mathref}[1]{\hyperref[#1]{Equation~\getrefnumber{#1}}}
 \newcommand{\secref} [1]{\autoref{#1}}
+
+% -------------------------------------------------------------------
+%                    Configure Tikz library
+% -------------------------------------------------------------------
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle,
+                         rounded corners,
+                         minimum width=3cm,
+                         minimum height=1cm,
+                         text centered,
+                         draw=black,
+                         fill=red!30
+                        ]
+\tikzstyle{io} = [trapezium,
+                  trapezium left angle=70,
+                  trapezium right angle=110,
+                  minimum width=3cm,
+                  minimum height=1cm,
+                  text centered,
+                  draw=black,
+                  fill=blue!30
+                ]
+\tikzstyle{process} = [rectangle,
+                       minimum width=3cm,
+                       minimum height=1cm,
+                       text width=8cm,
+                       text centered,
+                       draw=black,
+                       fill=orange!30
+                      ]
+\tikzstyle{decision} = [diamond,
+                        minimum width=3cm,
+                        minimum height=1cm,
+                        text centered,
+                        draw=black,
+                        fill=green!30
+                      ]
+\tikzstyle{arrow} = [thick,->,>=stealth]                
