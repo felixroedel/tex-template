@@ -1,0 +1,4 @@
+[submodule "latex-framework"]
+	path = latex-framework
+	url = https://github.com/felixroedel/latex-framework.git
+	branch = main

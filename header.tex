@@ -1,0 +1,44 @@
+% define header specifics
+\def\author{xxx}
+\def\module{xxx}
+\def\experiment{xxx}
+\def\group{xxx}
+\def\submissionDate{xxx}
+\def\labDate{xxx}
+
+\begin{titlepage}
+    \newgeometry{
+        left=2.5cm,
+        right=2.5cm,
+        top=2.5cm,
+        bottom=2.5cm
+    }
+    \centering
+    \includegraphics[width=\textwidth]{latex-framework/logo_hs_de}
+    \vspace{2cm}
+    
+    \begin{Huge}
+        \textbf{Praktikumsbericht}
+    \end{Huge}
+    \vspace{3cm}
+
+    \begin{huge}
+        \module \par
+        \textbf{Praktikum \experiment} \par
+    \end{huge}
+    \vspace{2cm}
+
+    \begin{Large}
+        Gruppe 8 \par
+        Autor: \author \par
+    \end{Large}
+    
+    \vspace{2cm}
+
+    \begin{Large}
+        Labortermine: \labDate \par
+        Abgabedatum: \submissionDate \par
+    \end{Large}
+
+    \restoregeometry
+\end{titlepage}
