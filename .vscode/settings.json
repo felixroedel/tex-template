@@ -2,6 +2,7 @@
     "latex-workshop.latex.rootFile.indicator": "\\documentclass[]{}",
     "latex-workshop.latex.outDir": "%DIR%/build",
     "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
@@ -24,6 +25,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-output-directory=%OUTDIR%",
                 "%DOC%"
             ]
         },
@@ -31,8 +33,46 @@
             "name": "bibtex",
             "command": "bibtex",
             "args": [
+                "%OUTDIR%/%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+                "-d", "%OUTDIR%",
                 "%DOCFILE%"
             ]
+        },
+        {
+            "name": "makenomenclature",
+            "command": "makeindex",
+            "args": [
+                "%OUTDIR%/%DOCFILE%.nlo",
+                "-s",
+                "nomencl.ist",
+                "-o",
+                "%OUTDIR%/%DOCFILE%.nls"
+            ]
         }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex -> makeglossaries -> bibtex -> pdflatex x2",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "makenomenclature",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
     ]
 }
